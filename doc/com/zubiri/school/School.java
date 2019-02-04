@@ -64,7 +64,7 @@ public class School {
 	 */
 	public int findAdministrative(String administrativeID) {
 		for (int i = 0; i < administratives.size(); i++)
-			if (administratives.get(i).getAdministrativeID().matches(administrativeID))
+			if (administratives.get(i).getAdministrativeID().matches(administrativeID.toUpperCase()))
 				return i;
 		return -1;
 	}
@@ -164,7 +164,7 @@ public class School {
 	 */
 	public int findTeacher(String teacherID) {
 		for (int i = 0; i < teachers.size(); i++)
-			if (teachers.get(i).getTeacherID().matches(teacherID))
+			if (teachers.get(i).getTeacherID().matches(teacherID.toUpperCase()))
 				return i;
 		return -1;
 	}
@@ -276,7 +276,7 @@ public class School {
 	 */
 	public int findStudent(String studentID) {
 		for (int i = 0; i < students.size(); i++)
-			if (students.get(i).getStudentID().matches(studentID))
+			if (students.get(i).getStudentID().matches(studentID.toUpperCase()))
 				return i;
 		return -1;
 	}
@@ -348,6 +348,12 @@ public class School {
 	}
 
 	// Methods to manage information between classes
+	
+	/**
+	 * 
+	 * @param studentID
+	 * @return a String that contains the ID of the tutor; if it doesn't find it, it'll return "notFound" 
+	 */
 
 	public String findTutorID(String studentID) {
 
@@ -364,10 +370,15 @@ public class School {
 
 	}
 
+	/**
+	 * 
+	 * @param teacherID
+	 * @return a String with the IDs of the students who that teacher is the tutor of; if it's not found it returns an empty string
+	 */
 	public String getStudentsByTeacherID(String teacherID) {
 
 		String found = "";
-		if (teachers.get(findTeacher(teacherID)).getTutor().matches(""))
+		if (teachers.get(findTeacher(teacherID.toUpperCase())).getTutor().matches(""))
 			return found;
 		else {
 			for (int i = 0; i < students.size(); i++) {
@@ -383,6 +394,11 @@ public class School {
 
 	}
 
+	/**
+	 * 
+	 * @param a String with the subject
+	 * @return a String with the IDs of the teachers that teaches the subject separated by '::'; if they don't match it'll return an empty String
+	 */
 	public String findTeacherIDBySubject(String subject) {
 
 		String found = "";

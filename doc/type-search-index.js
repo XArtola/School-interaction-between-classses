@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.zubiri.school","l":"Administrative"},{"p":"com.zubiri.school","l":"Person"},{"p":"com.zubiri.school","l":"School"},{"p":"com.zubiri.school","l":"Student"},{"p":"com.zubiri.school","l":"Teacher"},{"p":"com.zubiri.school","l":"Worker"}]
